@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Welcome to your Jupyter Book &#8212; My sample book</title>
+    <title>Dekomposisi QR dengan Metode Gram–Schmidt &#8212; My sample book</title>
   
   
   
@@ -59,10 +59,10 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'dekomposisi';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Naylatus syafa’ah" href="markdown.html" />
+    <link rel="prev" title="transformasi matrik" href="transformasi%20matriks.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -125,8 +125,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -145,7 +143,7 @@
     
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -176,13 +174,13 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Welcome to your Jupyter Book
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Naylatus syafa’ah</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">SISTEM PERSAMAAN LINIER</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tugas2.html">📘 Eliminasi Gaussian</a></li>
@@ -196,7 +194,7 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="dekomposisi.html">Dekomposisi QR dengan Metode Gram–Schmidt</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Dekomposisi QR dengan Metode Gram–Schmidt</a></li>
 
 
 
@@ -275,7 +273,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdekomposisi.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -305,7 +303,7 @@
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/dekomposisi.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -315,7 +313,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -376,7 +374,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -387,11 +387,27 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Welcome to your Jupyter Book</h1>
+    <h1>Dekomposisi QR dengan Metode Gram–Schmidt</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Dekomposisi QR dengan Metode Gram–Schmidt</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-menentukan-q-1">Langkah 1 — Menentukan <span class="math notranslate nohighlight">\(q_1\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-menentukan-q-2">Langkah 2 — Menentukan <span class="math notranslate nohighlight">\(q_2\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-menentukan-q-3">Langkah 3 — Menentukan <span class="math notranslate nohighlight">\(q_3\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-menentukan-q-4">Langkah 4 — Menentukan <span class="math notranslate nohighlight">\(q_4\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-matriks-q">Membentuk Matriks <span class="math notranslate nohighlight">\(Q\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-matriks-r">Membentuk Matriks <span class="math notranslate nohighlight">\(R\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#verifikasi">Verifikasi</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -401,38 +417,355 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-your-jupyter-book">
-<h1>Welcome to your Jupyter Book<a class="headerlink" href="#welcome-to-your-jupyter-book" title="Link to this heading">#</a></h1>
-<p>This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a> for more information.</p>
-<p>Check out the content pages bundled with this sample book to see more.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="markdown.html">Naylatus syafa’ah</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">SISTEM PERSAMAAN LINIER</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tugas2.html">📘 Eliminasi Gaussian</a></li>
-<li class="toctree-l1"><a class="reference internal" href="evaluasi%20determinan.html">Determinan Matriks dengan Ekspansi Baris</a></li>
-<li class="toctree-l1"><a class="reference internal" href="evaluasi%20determinan.html#jawaban-akhir">Jawaban Akhir</a></li>
-<li class="toctree-l1"><a class="reference internal" href="evaluasi%20determinan.html#invers-matriks-dengan-rumus-adjoin">Invers Matriks dengan Rumus Adjoin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="evaluasi%20determinan.html#id11">Jawaban Akhir</a></li>
-<li class="toctree-l1"><a class="reference internal" href="transformasi%20matriks.html">transformasi matrik</a></li>
-<li class="toctree-l1"><a class="reference internal" href="transformasi%20matriks.html#transformasi-a-ke-b">1. Transformasi A ke B</a></li>
-<li class="toctree-l1"><a class="reference internal" href="transformasi%20matriks.html#transformasi-b-ke-c">2. Transformasi B ke C</a></li>
-<li class="toctree-l1"><a class="reference internal" href="transformasi%20matriks.html#transformasi-d-ke-e">3. Transformasi D ke E</a></li>
-<li class="toctree-l1"><a class="reference internal" href="transformasi%20matriks.html#transformasi-e-ke-f">4. Transformasi E ke F</a></li>
-<li class="toctree-l1"><a class="reference internal" href="transformasi%20matriks.html#kesimpulan">Kesimpulan</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dekomposisi.html">Dekomposisi QR dengan Metode Gram–Schmidt</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dekomposisi.html#langkah-1-menentukan-q-1">Langkah 1 — Menentukan <span class="math notranslate nohighlight">\(q_1\)</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="dekomposisi.html#langkah-2-menentukan-q-2">Langkah 2 — Menentukan <span class="math notranslate nohighlight">\(q_2\)</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="dekomposisi.html#langkah-3-menentukan-q-3">Langkah 3 — Menentukan <span class="math notranslate nohighlight">\(q_3\)</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="dekomposisi.html#langkah-4-menentukan-q-4">Langkah 4 — Menentukan <span class="math notranslate nohighlight">\(q_4\)</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="dekomposisi.html#membentuk-matriks-q">Membentuk Matriks <span class="math notranslate nohighlight">\(Q\)</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="dekomposisi.html#membentuk-matriks-r">Membentuk Matriks <span class="math notranslate nohighlight">\(R\)</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="dekomposisi.html#verifikasi">Verifikasi</a></li>
-</ul>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="dekomposisi-qr-dengan-metode-gramschmidt">
+<h1>Dekomposisi QR dengan Metode Gram–Schmidt<a class="headerlink" href="#dekomposisi-qr-dengan-metode-gramschmidt" title="Link to this heading">#</a></h1>
+<p>Diberikan matriks</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A=
+\begin{bmatrix}
+1 &amp; 2 &amp; 0 &amp; 1\\
+2 &amp; 1 &amp; 1 &amp; 0\\
+0 &amp; 1 &amp; 2 &amp; 1\\
+1 &amp; 0 &amp; 1 &amp; 2
+\end{bmatrix}
+\end{split}\]</div>
+<p>Kolom-kolom matriks:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+a_1=
+\begin{bmatrix}
+1\\2\\0\\1
+\end{bmatrix},
+\quad
+a_2=
+\begin{bmatrix}
+2\\1\\1\\0
+\end{bmatrix},
+\quad
+a_3=
+\begin{bmatrix}
+0\\1\\2\\1
+\end{bmatrix},
+\quad
+a_4=
+\begin{bmatrix}
+1\\0\\1\\2
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="langkah-1-menentukan-q-1">
+<h1>Langkah 1 — Menentukan <span class="math notranslate nohighlight">\(q_1\)</span><a class="headerlink" href="#langkah-1-menentukan-q-1" title="Link to this heading">#</a></h1>
+<p>Hitung norma:</p>
+<div class="math notranslate nohighlight">
+\[
+\|a_1\|
+=
+\sqrt{1^2+2^2+0^2+1^2}
+=
+\sqrt{6}
+\]</div>
+<p>Normalisasi:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+q_1
+=
+\frac{a_1}{\|a_1\|}
+=
+\frac{1}{\sqrt6}
+\begin{bmatrix}
+1\\2\\0\\1
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="langkah-2-menentukan-q-2">
+<h1>Langkah 2 — Menentukan <span class="math notranslate nohighlight">\(q_2\)</span><a class="headerlink" href="#langkah-2-menentukan-q-2" title="Link to this heading">#</a></h1>
+<p>Hitung proyeksi <span class="math notranslate nohighlight">\(a_2\)</span> terhadap <span class="math notranslate nohighlight">\(q_1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+a_2\cdot q_1
+=
+\frac{1}{\sqrt6}(2\cdot1+1\cdot2+1\cdot0+0\cdot1)
+=
+\frac{4}{\sqrt6}
+\]</div>
+<p>Cari residu:</p>
+<div class="math notranslate nohighlight">
+\[
+v_2
+=
+a_2-(a_2\cdot q_1)q_1
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+=
+\begin{bmatrix}
+2\\1\\1\\0
+\end{bmatrix}
+-
+\frac{4}{6}
+\begin{bmatrix}
+1\\2\\0\\1
+\end{bmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+=
+\begin{bmatrix}
+2-\frac23\\
+1-\frac43\\
+1\\
+0-\frac23
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac43\\
+-\frac13\\
+1\\
+-\frac23
+\end{bmatrix}
+\end{split}\]</div>
+<p>Norma:</p>
+<div class="math notranslate nohighlight">
+\[
+\|v_2\|
+=
+\sqrt{
+\left(\frac43\right)^2+
+\left(-\frac13\right)^2+
+1^2+
+\left(-\frac23\right)^2
+}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+=
+\sqrt{
+\frac{16}{9}+\frac19+1+\frac49
+}
+=
+\sqrt{\frac{30}{9}}
+=
+\sqrt{\frac{10}{3}}
+\]</div>
+<p>Normalisasi:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+q_2
+=
+\frac{v_2}{\|v_2\|}
+=
+\sqrt{\frac{3}{10}}
+\begin{bmatrix}
+\frac43\\
+-\frac13\\
+1\\
+-\frac23
+\end{bmatrix}
+\end{split}\]</div>
+<p>atau setara dengan</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+q_2
+=
+\frac{1}{\sqrt{30}}
+\begin{bmatrix}
+4\\-1\\3\\-2
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="langkah-3-menentukan-q-3">
+<h1>Langkah 3 — Menentukan <span class="math notranslate nohighlight">\(q_3\)</span><a class="headerlink" href="#langkah-3-menentukan-q-3" title="Link to this heading">#</a></h1>
+<p>Gunakan:</p>
+<div class="math notranslate nohighlight">
+\[
+v_3
+=
+a_3
+-(a_3\cdot q_1)q_1
+-(a_3\cdot q_2)q_2
+\]</div>
+<p>Hitung:</p>
+<div class="math notranslate nohighlight">
+\[
+a_3\cdot q_1
+=
+\frac{1}{\sqrt6}(0+2+0+1)
+=
+\frac{3}{\sqrt6}
+\]</div>
+<p>Hitung:</p>
+<div class="math notranslate nohighlight">
+\[
+a_3\cdot q_2
+=
+\frac{1}{\sqrt{30}}
+(0\cdot4+1(-1)+2(3)+1(-2))
+=
+\frac{3}{\sqrt{30}}
+\]</div>
+<p>Substitusi:</p>
+<div class="math notranslate nohighlight">
+\[
+v_3
+=
+a_3
+-
+\frac{3}{\sqrt6}q_1
+-
+\frac{3}{\sqrt{30}}q_2
+\]</div>
+<p>Diperoleh:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+v_3
+=
+\begin{bmatrix}
+-1\\0\\2\\1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Norma:</p>
+<div class="math notranslate nohighlight">
+\[
+\|v_3\|
+=
+\sqrt{(-1)^2+0^2+2^2+1^2}
+=
+\sqrt6
+\]</div>
+<p>Normalisasi:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+q_3
+=
+\frac{1}{\sqrt6}
+\begin{bmatrix}
+-1\\0\\2\\1
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="langkah-4-menentukan-q-4">
+<h1>Langkah 4 — Menentukan <span class="math notranslate nohighlight">\(q_4\)</span><a class="headerlink" href="#langkah-4-menentukan-q-4" title="Link to this heading">#</a></h1>
+<p>Gunakan:</p>
+<div class="math notranslate nohighlight">
+\[
+v_4
+=
+a_4
+-(a_4\cdot q_1)q_1
+-(a_4\cdot q_2)q_2
+-(a_4\cdot q_3)q_3
+\]</div>
+<p>Hitung:</p>
+<div class="math notranslate nohighlight">
+\[
+a_4\cdot q_1
+=
+\frac{3}{\sqrt6}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+a_4\cdot q_2
+=
+-\frac{3}{\sqrt{30}}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+a_4\cdot q_3
+=
+\frac{3}{\sqrt6}
+\]</div>
+<p>Substitusi menghasilkan:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+v_4
+=
+\begin{bmatrix}
+0\\-1\\0\\1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Norma:</p>
+<div class="math notranslate nohighlight">
+\[
+\|v_4\|
+=
+\sqrt2
+\]</div>
+<p>Normalisasi:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+q_4
+=
+\frac{1}{\sqrt2}
+\begin{bmatrix}
+0\\-1\\0\\1
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="membentuk-matriks-q">
+<h1>Membentuk Matriks <span class="math notranslate nohighlight">\(Q\)</span><a class="headerlink" href="#membentuk-matriks-q" title="Link to this heading">#</a></h1>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+Q=
+\begin{bmatrix}
+\dfrac1{\sqrt6} &amp; \dfrac4{\sqrt{30}} &amp; -\dfrac1{\sqrt6} &amp; 0\\[6pt]
+\dfrac2{\sqrt6} &amp; -\dfrac1{\sqrt{30}} &amp; 0 &amp; -\dfrac1{\sqrt2}\\[6pt]
+0 &amp; \dfrac3{\sqrt{30}} &amp; \dfrac2{\sqrt6} &amp; 0\\[6pt]
+\dfrac1{\sqrt6} &amp; -\dfrac2{\sqrt{30}} &amp; \dfrac1{\sqrt6} &amp; \dfrac1{\sqrt2}
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="membentuk-matriks-r">
+<h1>Membentuk Matriks <span class="math notranslate nohighlight">\(R\)</span><a class="headerlink" href="#membentuk-matriks-r" title="Link to this heading">#</a></h1>
+<p>Gunakan:</p>
+<div class="math notranslate nohighlight">
+\[
+R=Q^TA
+\]</div>
+<p>Hasil:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+R=
+\begin{bmatrix}
+\sqrt6 &amp; \dfrac4{\sqrt6} &amp; \dfrac3{\sqrt6} &amp; \dfrac3{\sqrt6}\\[8pt]
+0 &amp; \sqrt{\dfrac{10}{3}} &amp; \dfrac3{\sqrt{30}} &amp; -\dfrac3{\sqrt{30}}\\[8pt]
+0 &amp; 0 &amp; \sqrt6 &amp; \dfrac3{\sqrt6}\\[8pt]
+0 &amp; 0 &amp; 0 &amp; \sqrt2
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="verifikasi">
+<h1>Verifikasi<a class="headerlink" href="#verifikasi" title="Link to this heading">#</a></h1>
+<p>Kalikan:</p>
+<div class="math notranslate nohighlight">
+\[
+QR
+\]</div>
+<p>Maka diperoleh:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+QR=
+\begin{bmatrix}
+1 &amp; 2 &amp; 0 &amp; 1\\
+2 &amp; 1 &amp; 1 &amp; 0\\
+0 &amp; 1 &amp; 2 &amp; 1\\
+1 &amp; 0 &amp; 1 &amp; 2
+\end{bmatrix}
+=A
+\end{split}\]</div>
+<p>Karena</p>
+<div class="math notranslate nohighlight">
+\[
+QR=A
+\]</div>
+<p>maka dekomposisi QR yang diperoleh benar.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -465,14 +798,14 @@ It does not go in-depth into any particular topic - check out <a class="referenc
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="right-next"
-       href="markdown.html"
-       title="next page">
+    <a class="left-prev"
+       href="transformasi%20matriks.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Naylatus syafa’ah</p>
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">transformasi matrik</p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -480,6 +813,29 @@ It does not go in-depth into any particular topic - check out <a class="referenc
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Dekomposisi QR dengan Metode Gram–Schmidt</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-menentukan-q-1">Langkah 1 — Menentukan <span class="math notranslate nohighlight">\(q_1\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-menentukan-q-2">Langkah 2 — Menentukan <span class="math notranslate nohighlight">\(q_2\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-menentukan-q-3">Langkah 3 — Menentukan <span class="math notranslate nohighlight">\(q_3\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-menentukan-q-4">Langkah 4 — Menentukan <span class="math notranslate nohighlight">\(q_4\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-matriks-q">Membentuk Matriks <span class="math notranslate nohighlight">\(Q\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-matriks-r">Membentuk Matriks <span class="math notranslate nohighlight">\(R\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#verifikasi">Verifikasi</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
