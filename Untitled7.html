@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Singular Value Decomposition (SVD) &#8212; My sample book</title>
+    <title>&lt;no title&gt; &#8212; My sample book</title>
   
   
   
@@ -57,8 +57,6 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Untitled7';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -203,7 +201,7 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="SVD.html">Singular Value Decomposition (SVD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singular%20value%20decomposition%28SVD%29.html">Singular Value Decomposition (SVD)</a></li>
 </ul>
 
     </div>
@@ -389,7 +387,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Singular Value Decomposition (SVD)</h1>
+    <h1><no title></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -398,25 +396,9 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">Pendahuluan</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-matematis">Definisi Matematis</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-u">1. Matriks <span class="math notranslate nohighlight">\(U\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-sigma">2. Matriks <span class="math notranslate nohighlight">\(\Sigma\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-v-t">3. Matriks <span class="math notranslate nohighlight">\(V^T\)</span></a></li>
+                <ul class="simple visible nav section-nav flex-column">
 </ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-geometris-svd">Interpretasi Geometris SVD</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#makna-nilai-singular">Makna Nilai Singular</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplikasi-svd">Aplikasi SVD</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kompresi-citra">1. Kompresi Citra</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduksi-dimensi">2. Reduksi Dimensi</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-rekomendasi">3. Sistem Rekomendasi</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-data">4. Analisis Data</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
-</ul>
+
             </nav>
         </div>
     </div>
@@ -427,211 +409,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="singular-value-decomposition-svd">
-<h1>Singular Value Decomposition (SVD)<a class="headerlink" href="#singular-value-decomposition-svd" title="Link to this heading">#</a></h1>
-<section id="pendahuluan">
-<h2>Pendahuluan<a class="headerlink" href="#pendahuluan" title="Link to this heading">#</a></h2>
-<p><strong>Singular Value Decomposition (SVD)</strong> merupakan salah satu teknik faktorisasi matriks yang sangat penting dalam aljabar linear. Metode ini menguraikan sebuah matriks menjadi beberapa komponen yang lebih sederhana sehingga karakteristik utama matriks dapat dipahami dengan lebih mudah.</p>
-<p>SVD banyak dimanfaatkan dalam berbagai bidang, antara lain:</p>
-<ul class="simple">
-<li><p>Pemrosesan sinyal (<em>signal processing</em>)</p></li>
-<li><p>Kompresi citra (<em>image compression</em>)</p></li>
-<li><p>Reduksi dimensi pada <em>machine learning</em></p></li>
-<li><p>Sistem rekomendasi</p></li>
-<li><p>Analisis data dan <em>data mining</em></p></li>
-</ul>
-<p>Untuk memahami SVD, diperlukan pengetahuan dasar mengenai:</p>
-<ul class="simple">
-<li><p>Operasi matriks dan vektor</p></li>
-<li><p>Rank matriks</p></li>
-<li><p>Nilai eigen dan vektor eigen</p></li>
-<li><p>Matriks ortogonal</p></li>
-<li><p>Transformasi linear</p></li>
-</ul>
-</section>
-<hr class="docutils" />
-<section id="definisi-matematis">
-<h2>Definisi Matematis<a class="headerlink" href="#definisi-matematis" title="Link to this heading">#</a></h2>
-<p>Untuk suatu matriks riil <span class="math notranslate nohighlight">\(A\)</span> berukuran <span class="math notranslate nohighlight">\(m \times n\)</span>, dekomposisi SVD dinyatakan sebagai:</p>
-<div class="math notranslate nohighlight">
-\[
-A = U \Sigma V^T
-\]</div>
-<p>dengan:</p>
-<section id="matriks-u">
-<h3>1. Matriks <span class="math notranslate nohighlight">\(U\)</span><a class="headerlink" href="#matriks-u" title="Link to this heading">#</a></h3>
-<p>Matriks <span class="math notranslate nohighlight">\(U\)</span> merupakan matriks ortogonal berukuran <span class="math notranslate nohighlight">\(m \times m\)</span>.</p>
-<p>Sifat pentingnya adalah:</p>
-<div class="math notranslate nohighlight">
-\[
-U^T U = U U^T = I
-\]</div>
-<p>Kolom-kolom pada matriks <span class="math notranslate nohighlight">\(U\)</span> disebut <strong>vektor singular kiri</strong> (<em>left singular vectors</em>) dari matriks <span class="math notranslate nohighlight">\(A\)</span>.</p>
-</section>
-<hr class="docutils" />
-<section id="matriks-sigma">
-<h3>2. Matriks <span class="math notranslate nohighlight">\(\Sigma\)</span><a class="headerlink" href="#matriks-sigma" title="Link to this heading">#</a></h3>
-<p>Matriks <span class="math notranslate nohighlight">\(\Sigma\)</span> merupakan matriks diagonal berukuran <span class="math notranslate nohighlight">\(m \times n\)</span> yang memuat nilai-nilai singular (<em>singular values</em>) pada diagonal utamanya.</p>
-<p>Bentuk umumnya adalah:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\Sigma =
-\begin{bmatrix}
-\sigma_1 &amp; 0 &amp; \cdots &amp; 0 \\
-0 &amp; \sigma_2 &amp; \cdots &amp; 0 \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-0 &amp; 0 &amp; \cdots &amp; \sigma_r
-\end{bmatrix}
-\end{split}\]</div>
-<p>dengan:</p>
-<div class="math notranslate nohighlight">
-\[
-\sigma_1 \ge \sigma_2 \ge \cdots \ge \sigma_r \ge 0
-\]</div>
-<p>di mana:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\sigma_i\)</span> disebut nilai singular (<em>singular value</em>).</p></li>
-<li><p>Semua nilai singular selalu bernilai tidak negatif.</p></li>
-<li><p>Banyaknya nilai singular yang tidak nol sama dengan rank matriks <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
-</ul>
-<p>Nilai singular menunjukkan besarnya kontribusi setiap arah utama dalam merepresentasikan data.</p>
-</section>
-<hr class="docutils" />
-<section id="matriks-v-t">
-<h3>3. Matriks <span class="math notranslate nohighlight">\(V^T\)</span><a class="headerlink" href="#matriks-v-t" title="Link to this heading">#</a></h3>
-<p>Matriks <span class="math notranslate nohighlight">\(V^T\)</span> merupakan transpose dari matriks ortogonal <span class="math notranslate nohighlight">\(V\)</span> yang berukuran <span class="math notranslate nohighlight">\(n \times n\)</span>.</p>
-<p>Sifat ortogonalnya diberikan oleh:</p>
-<div class="math notranslate nohighlight">
-\[
-V^T V = V V^T = I
-\]</div>
-<p>Kolom-kolom matriks <span class="math notranslate nohighlight">\(V\)</span> disebut <strong>vektor singular kanan</strong> (<em>right singular vectors</em>) dari matriks <span class="math notranslate nohighlight">\(A\)</span>.</p>
-</section>
-</section>
-<hr class="docutils" />
-<section id="interpretasi-geometris-svd">
-<h2>Interpretasi Geometris SVD<a class="headerlink" href="#interpretasi-geometris-svd" title="Link to this heading">#</a></h2>
-<p>Secara geometris, SVD dapat dipandang sebagai rangkaian tiga transformasi linear:</p>
-<ol class="arabic simple">
-<li><p>Matriks <span class="math notranslate nohighlight">\(V^T\)</span> melakukan rotasi atau refleksi terhadap data.</p></li>
-<li><p>Matriks <span class="math notranslate nohighlight">\(\Sigma\)</span> melakukan penskalaan (<em>scaling</em>) pada setiap arah utama berdasarkan nilai singular.</p></li>
-<li><p>Matriks <span class="math notranslate nohighlight">\(U\)</span> melakukan rotasi atau refleksi kembali pada hasil transformasi sebelumnya.</p></li>
-</ol>
-<p>Dengan demikian, transformasi yang dilakukan oleh matriks <span class="math notranslate nohighlight">\(A\)</span> dapat dipahami sebagai kombinasi dari rotasi, penskalaan, dan rotasi kembali.</p>
-</section>
-<hr class="docutils" />
-<section id="makna-nilai-singular">
-<h2>Makna Nilai Singular<a class="headerlink" href="#makna-nilai-singular" title="Link to this heading">#</a></h2>
-<p>Nilai singular memberikan informasi mengenai pentingnya setiap komponen dalam suatu matriks.</p>
-<p>Beberapa interpretasi pentingnya adalah:</p>
-<ul class="simple">
-<li><p>Nilai singular yang besar menunjukkan arah yang memiliki kontribusi dominan.</p></li>
-<li><p>Nilai singular yang kecil menunjukkan arah yang kontribusinya relatif rendah.</p></li>
-<li><p>Nilai singular yang mendekati nol sering kali dapat diabaikan untuk memperoleh representasi yang lebih sederhana tanpa kehilangan banyak informasi.</p></li>
-</ul>
-<p>Konsep ini menjadi dasar dalam teknik kompresi data dan reduksi dimensi.</p>
-</section>
-<hr class="docutils" />
-<section id="aplikasi-svd">
-<h2>Aplikasi SVD<a class="headerlink" href="#aplikasi-svd" title="Link to this heading">#</a></h2>
-<section id="kompresi-citra">
-<h3>1. Kompresi Citra<a class="headerlink" href="#kompresi-citra" title="Link to this heading">#</a></h3>
-<p>SVD memungkinkan gambar direpresentasikan menggunakan sejumlah kecil nilai singular terbesar sehingga ukuran penyimpanan dapat dikurangi tanpa menghilangkan kualitas secara signifikan.</p>
-</section>
-<section id="reduksi-dimensi">
-<h3>2. Reduksi Dimensi<a class="headerlink" href="#reduksi-dimensi" title="Link to this heading">#</a></h3>
-<p>Dalam analisis data dan <em>machine learning</em>, SVD digunakan untuk mengurangi jumlah fitur sambil mempertahankan informasi utama yang terkandung dalam data.</p>
-</section>
-<section id="sistem-rekomendasi">
-<h3>3. Sistem Rekomendasi<a class="headerlink" href="#sistem-rekomendasi" title="Link to this heading">#</a></h3>
-<p>Banyak sistem rekomendasi memanfaatkan SVD untuk menemukan pola preferensi pengguna dan memberikan rekomendasi yang lebih akurat.</p>
-</section>
-<section id="analisis-data">
-<h3>4. Analisis Data<a class="headerlink" href="#analisis-data" title="Link to this heading">#</a></h3>
-<p>SVD membantu mengidentifikasi struktur tersembunyi dalam data serta mengurangi pengaruh <em>noise</em>.</p>
-</section>
-</section>
-<hr class="docutils" />
-<section id="kesimpulan">
-<h2>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
-<p>Singular Value Decomposition (SVD) merupakan metode faktorisasi matriks yang menguraikan suatu matriks menjadi tiga komponen utama:</p>
-<div class="math notranslate nohighlight">
-\[
-A = U \Sigma V^T
-\]</div>
-<p>di mana:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(U\)</span> berisi vektor singular kiri.</p></li>
-<li><p><span class="math notranslate nohighlight">\(\Sigma\)</span> berisi nilai singular.</p></li>
-<li><p><span class="math notranslate nohighlight">\(V^T\)</span> berisi vektor singular kanan.</p></li>
-</ul>
-<p>Melalui dekomposisi ini, struktur suatu matriks dapat dianalisis dengan lebih mudah. Oleh karena itu, SVD menjadi salah satu teknik fundamental dalam aljabar linear modern, analisis data, kompresi citra, serta berbagai aplikasi <em>machine learning</em>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="p">])</span>
-
-<span class="c1"># Singular Value Decomposition</span>
-<span class="n">U</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">VT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Matrix U:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Singular Values:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Matrix V^T:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">VT</span><span class="p">)</span>
-
-<span class="c1"># Ubah S menjadi matriks diagonal Sigma</span>
-<span class="n">Sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Matrix Sigma:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">Sigma</span><span class="p">)</span>
-
-<span class="c1"># Rekonstruksi A</span>
-<span class="n">hasil</span> <span class="o">=</span> <span class="n">U</span> <span class="o">@</span> <span class="n">Sigma</span> <span class="o">@</span> <span class="n">VT</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Hasil U @ Sigma @ V^T:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">hasil</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix U:
-[[-0.21132487 -0.57735027 -0.78867513]
- [-0.57735027 -0.57735027  0.57735027]
- [-0.78867513  0.57735027 -0.21132487]]
-
-Singular Values:
-[3.73205081 2.         0.26794919]
-
-Matrix V^T:
-[[-0.57735027 -0.21132487 -0.78867513]
- [-0.57735027 -0.57735027  0.57735027]
- [ 0.57735027 -0.78867513 -0.21132487]]
-
-Matrix Sigma:
-[[3.73205081 0.         0.        ]
- [0.         2.         0.        ]
- [0.         0.         0.26794919]]
-
-Hasil U @ Sigma @ V^T:
-[[ 1.  1.  0.]
- [ 2.  1.  1.]
- [ 1. -0.  3.]]
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-
+  
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -677,25 +455,9 @@ Hasil U @ Sigma @ V^T:
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">Pendahuluan</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-matematis">Definisi Matematis</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-u">1. Matriks <span class="math notranslate nohighlight">\(U\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-sigma">2. Matriks <span class="math notranslate nohighlight">\(\Sigma\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-v-t">3. Matriks <span class="math notranslate nohighlight">\(V^T\)</span></a></li>
+    <ul class="simple visible nav section-nav flex-column">
 </ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-geometris-svd">Interpretasi Geometris SVD</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#makna-nilai-singular">Makna Nilai Singular</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplikasi-svd">Aplikasi SVD</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kompresi-citra">1. Kompresi Citra</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduksi-dimensi">2. Reduksi Dimensi</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-rekomendasi">3. Sistem Rekomendasi</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-data">4. Analisis Data</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
-</ul>
+
   </nav></div>
 
 </div></div>
